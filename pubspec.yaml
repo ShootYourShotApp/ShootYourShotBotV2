@@ -35,6 +35,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   get: ^4.6.6
+  permission_handler: ^11.3.1
 
 dev_dependencies:
   flutter_test:
@@ -69,4 +70,35 @@ flutter:
         - asset: assets/fonts/SFDigitalReadout-Heavy.ttf
     - family: SFCompactRounded
       fonts:
+        - asset: assets/fonts/SF-Compact-Rounded-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/SFCompactRound-Medium.ttf
+          weight: 500
         - asset: assets/fonts/SF-Compact-Rounded-Black.ttf
+          weight: 900
+    - family: SFProRound
+      fonts:
+        - asset: assets/fonts/SFProRound-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/SFProRounded-Semibold.ttf
+          weight: 600
+        - asset: assets/fonts/SFProRound-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/SFProRound-Heavy.ttf
+          weight: 800
+        - asset: assets/fonts/SFProRound-Black.ttf
+          weight: 900
+    - family: SFUIText
+      fonts:
+        - asset: assets/fonts/SFUIText-Regular.ttf
+          weight: 400
+    - family: LuckiestGuy
+      fonts:
+        - asset: assets/fonts/LuckiestGuy-Regular.ttf
+    - family: ShareTechMono
+      fonts:
+        - asset: assets/fonts/ShareTechMono-Regular.ttf
+    - family: Avenir
+      fonts:
+        - asset: assets/fonts/Avenir-Medium.otf
+          weight: 500

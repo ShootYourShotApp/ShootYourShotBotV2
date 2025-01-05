@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
+import 'package:sysbotv2/provider/chatProvider.dart';
 
 class VoiceChatScreen extends StatefulWidget {
   const VoiceChatScreen({super.key});
@@ -50,83 +52,91 @@ class _VoiceChatScreenState extends State<VoiceChatScreen> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: Container(
-        width: width,
-        height: height,
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/voice-chat-bg.png'),
-                fit: BoxFit.fill)),
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(height: 24),
-                Row(
+      body: Consumer<ChatProvider>(
+        builder: (context, chatProvider, child) {
+          return Container(
+            width: width,
+            height: height,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/images/voice-chat-bg.png'),
+                    fit: BoxFit.fill)),
+            child: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    GestureDetector(
-                        onTap: () => Get.back(),
-                        child: Image.asset('assets/images/arrow-back-icon.png',
-                            width: 18)),
-                    const Spacer(),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 6),
-                      child: Image.asset('assets/images/muscle-time-icon.png',
-                          width: 28),
+                    const SizedBox(height: 24),
+                    Row(
+                      children: [
+                        // GestureDetector(
+                        //     onTap: () => Get.back(),
+                        //     child: Image.asset('assets/images/arrow-back-icon.png',
+                        //         width: 18)),
+                        const Spacer(),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 6),
+                          child: Image.asset(
+                              'assets/images/muscle-time-icon.png',
+                              width: 28),
+                        ),
+                        const SizedBox(width: 16),
+                        Image.asset('assets/images/fa_question-circle-icon.png',
+                            width: 24),
+                      ],
                     ),
-                    const SizedBox(width: 16),
-                    Image.asset('assets/images/fa_question-circle-icon.png',
-                        width: 24),
+                    const SizedBox(height: 20),
+                    Container(
+                      width: 130,
+                      height: 48,
+                      decoration: BoxDecoration(
+                          color: Color(0xff979797).withValues(alpha: 0.24),
+                          borderRadius: BorderRadius.circular(32)),
+                      child: Row(
+                        children: [
+                          const SizedBox(width: 10),
+                          Image.asset('assets/images/ball-with-gradient-bg.png',
+                              width: 36),
+                          const SizedBox(width: 10),
+                          Text(
+                            formatTime(remainingSeconds),
+                            style: const TextStyle(
+                                fontSize: 32,
+                                color: Colors.white,
+                                fontFamily: 'SFDigital'),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 40),
+                    Image.asset('assets/images/bot-img.png',
+                        height: height * 0.38),
+                    const SizedBox(height: 30),
+                    CustomRow(status: status),
+                    const Spacer(),
+                    GestureDetector(
+                        onTap: () {
+                          if (status.value == 'stop') {
+                            chatProvider.startConversation();
+                            chatProvider.startListening();
+                            status.value = 'listening';
+                          } else {
+                            status.value = 'stop';
+                          }
+                        },
+                        child: Obx(() => Image.asset(
+                            status.value.toLowerCase() == 'stop'
+                                ? 'assets/images/shoot-icon-with-bg.png'
+                                : 'assets/images/stop-icon-with-bg.png',
+                            width: 96))),
+                    const Spacer(),
                   ],
                 ),
-                const SizedBox(height: 20),
-                Container(
-                  width: 130,
-                  height: 48,
-                  decoration: BoxDecoration(
-                      color: Color(0xff979797).withValues(alpha: 0.24),
-                      borderRadius: BorderRadius.circular(32)),
-                  child: Row(
-                    children: [
-                      const SizedBox(width: 10),
-                      Image.asset('assets/images/ball-with-gradient-bg.png',
-                          width: 36),
-                      const SizedBox(width: 10),
-                      Text(
-                        formatTime(remainingSeconds),
-                        style: const TextStyle(
-                            fontSize: 32,
-                            color: Colors.white,
-                            fontFamily: 'SFDigital'),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 40),
-                Image.asset('assets/images/bot-img.png', height: height * 0.38),
-                const SizedBox(height: 30),
-                CustomRow(status: status),
-                const Spacer(),
-                GestureDetector(
-                    onTap: () {
-                      if (status.value == 'stop') {
-                        status.value = 'listening';
-                      } else {
-                        status.value = 'stop';
-                      }
-                    },
-                    child: Obx(() => Image.asset(
-                        status.value.toLowerCase() == 'stop'
-                            ? 'assets/images/shoot-icon-with-bg.png'
-                            : 'assets/images/stop-icon-with-bg.png',
-                        width: 96))),
-                const Spacer(),
-              ],
+              ),
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }

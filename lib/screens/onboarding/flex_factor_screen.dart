@@ -109,7 +109,8 @@ class _FlexFactorScreenState extends State<FlexFactorScreen> {
                       allItems: flexFactorsOptions,
                       title: 'Flex Factor',
                       iconPath: 'assets/images/flexed-biceps-icon.png',
-                      subtitle: 'At a party, you spot someone you like. Your next move is to ____.',
+                      subtitle:
+                          'At a party, you spot someone you like. Your next move is to ____.',
                       txtGradient: [Color(0xffFFFF00), Color(0xffEACDA3)],
                     ),
                     CarouselItem(
@@ -124,7 +125,8 @@ class _FlexFactorScreenState extends State<FlexFactorScreen> {
                       selectedListItems: selectedJuiceLevel,
                       allItems: juiceLevelOptions,
                       title: 'Juice Level',
-                      subtitle: 'In a group, your way to stand\nout is to ____.',
+                      subtitle:
+                          'In a group, your way to stand\nout is to ____.',
                       iconPath: 'assets/images/juice-box-icon.png',
                       txtGradient: const [Color(0xff43E97B), Color(0xff43E97B)],
                     ),
@@ -132,7 +134,8 @@ class _FlexFactorScreenState extends State<FlexFactorScreen> {
                       selectedListItems: selectedPickupGame,
                       allItems: pickupGameOptions,
                       title: 'Pickup Game',
-                      subtitle: 'You see your crush and walk over.\nYour first words are ____.',
+                      subtitle:
+                          'You see your crush and walk over.\nYour first words are ____.',
                       iconPath: 'assets/images/ball.png',
                       txtGradient: const [Color(0xffF6D365), Color(0xffFDA085)],
                     ),
@@ -186,7 +189,10 @@ class _FlexFactorScreenState extends State<FlexFactorScreen> {
                 },
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: CustomButton(title: 'Next', bgClr: getButtonColors()['bgClr'], txtClr: getButtonColors()['txtClr']),
+                  child: CustomButton(
+                      title: 'Next',
+                      bgClr: getButtonColors()['bgClr'],
+                      txtClr: getButtonColors()['txtClr']),
                 ),
               ),
               const Spacer(),
@@ -194,7 +200,7 @@ class _FlexFactorScreenState extends State<FlexFactorScreen> {
                 text: TextSpan(
                   children: [
                     TextSpan(
-                      text: '${currentIndex+1}/',
+                      text: '${currentIndex + 1}/',
                       style: TextStyle(
                         fontFamily: 'SFProRound',
                         fontWeight: FontWeight.w400,
@@ -249,26 +255,22 @@ class _FlexFactorScreenState extends State<FlexFactorScreen> {
       };
     } else {
       return {
-        'bgClr': const Color(0xffb7a3fb),
-        'txtClr': const Color(0xffffffff).withAlpha(100),
+        'bgClr': const Color(0xff582AFF).withValues(alpha: 0.41),
+        'txtClr': const Color(0xffffffff).withValues(alpha: 0.5),
       };
     }
   }
-
-
-
 }
 
 class CarouselItem extends StatefulWidget {
-  const CarouselItem({
-    super.key,
-    required this.selectedListItems,
-    required this.allItems,
-    required this.title,
-    required this.iconPath, 
-    required this.subtitle, 
-    required this.txtGradient
-  });
+  const CarouselItem(
+      {super.key,
+      required this.selectedListItems,
+      required this.allItems,
+      required this.title,
+      required this.iconPath,
+      required this.subtitle,
+      required this.txtGradient});
 
   final List<String> selectedListItems;
   final List<String> allItems;
@@ -372,7 +374,8 @@ class _CarouselItemState extends State<CarouselItem> {
         widget.selectedListItems.add(flagTitle);
       }
       // Notify the parent widget to rebuild the button
-      (context.findAncestorStateOfType<_FlexFactorScreenState>()!).setState(() {});
+      (context.findAncestorStateOfType<_FlexFactorScreenState>()!)
+          .setState(() {});
     });
   }
 }

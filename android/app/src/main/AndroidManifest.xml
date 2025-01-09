@@ -1,14 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-<<<<<<< HEAD
+
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
-=======
-
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
->>>>>>> cf111c203d6f885ef6ee759b41c9079eb42df661
 
     <application
         android:label="SYS Bot"

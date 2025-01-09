@@ -54,6 +54,30 @@ class AssistantService {
 
   Future<String> getChatCompletion(String prompt) async {
     try {
+      // Split the prompt to extract system context and user message
+      List<Map<String, String>> messages = [];
+
+      // Check if the prompt contains system context
+      if (prompt.startsWith('System context:')) {
+        final parts = prompt.split('\nCurrent user input:');
+        if (parts.length == 2) {
+          // Add system message first
+          messages.add({
+            'role': 'system',
+            'content': parts[0].replaceFirst('System context:', '').trim()
+          });
+
+          // Add user message
+          messages.add({'role': 'user', 'content': parts[1].trim()});
+        } else {
+          // Fallback to just user message if splitting fails
+          messages.add({'role': 'user', 'content': prompt});
+        }
+      } else {
+        // If no system context, just add user message
+        messages.add({'role': 'user', 'content': prompt});
+      }
+
       final response = await http.post(
         Uri.parse('https://api.openai.com/v1/chat/completions'),
         headers: {
@@ -62,9 +86,7 @@ class AssistantService {
         },
         body: jsonEncode({
           'model': 'gpt-3.5-turbo',
-          'messages': [
-            {'role': 'user', 'content': prompt}
-          ],
+          'messages': messages,
         }),
       );
 

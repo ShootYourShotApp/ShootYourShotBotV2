@@ -6,8 +6,7 @@ import 'dart:convert';
 import 'package:path_provider/path_provider.dart';
 
 class AssistantService {
-  static const String apiKey =
-      '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';
+  static const String apiKey = 'Your API Key';
 
   Future<String> transcribeAudio(List<int> audioBytes) async {
     try {

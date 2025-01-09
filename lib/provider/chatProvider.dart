@@ -45,7 +45,7 @@ class ChatProvider extends ChangeNotifier {
         "Hey future leader! Ready to boost your social impact and command respect? Whether it's public speaking, networking, or leading teams - I'll help you develop that magnetic presence that draws people in.",
     'Escape The Matrix':
         "What's up achiever! Time to break free from average and level up your life. Whether it's crushing goals, building habits, or maximizing productivity - I'm here to help you reach your full potential.",
-    '': "Hey there! I'm your AI assistant. How can I help you today?" // Default greeting
+    '': "Yerrr, I’m your Shoot Your Shot Bot, your AI dating coach. Got questions about dating, relationships, or even life advice? Whatever it is, I got you, let’s get to it!" // Default greeting
   };
   static const Map<String, Map<String, dynamic>> categoryConfig = {
     'Shoot Your Shot': {

@@ -145,31 +145,47 @@ class _VoiceChatScreenState extends State<VoiceChatScreen> {
                       const SizedBox(height: 24),
                       Row(
                         children: [
+                          InkWell(
+                            onTap: () async {
+                              final chatProvider = Provider.of<ChatProvider>(
+                                  context,
+                                  listen: false);
+                              chatProvider.cancelConversation();
+
+                              Navigator.pop(context);
+                            },
+                            child: Image.asset(
+                                'assets/images/arrow-back-icon.png',
+                                width: 24),
+                          ),
                           const Spacer(),
-                          Container(
-                            width: 130,
-                            height: 48,
-                            decoration: BoxDecoration(
-                                color: Color(0xff979797).withOpacity(0.24),
-                                borderRadius: BorderRadius.circular(32)),
-                            child: Row(
-                              children: [
-                                const SizedBox(width: 10),
-                                Image.asset(
-                                    'assets/images/ball-with-gradient-bg.png',
-                                    width: 36),
-                                const SizedBox(width: 10),
-                                Text(
-                                  formatTime(remainingSeconds),
-                                  style: const TextStyle(
-                                      fontSize: 32,
-                                      color: Colors.white,
-                                      fontFamily: 'SFDigital'),
-                                ),
-                              ],
+                          Align(
+                            alignment: Alignment.topCenter,
+                            child: Container(
+                              width: 130,
+                              height: 48,
+                              decoration: BoxDecoration(
+                                  color: Color(0xff979797).withOpacity(0.24),
+                                  borderRadius: BorderRadius.circular(32)),
+                              child: Row(
+                                children: [
+                                  const SizedBox(width: 10),
+                                  Image.asset(
+                                      'assets/images/ball-with-gradient-bg.png',
+                                      width: 36),
+                                  const SizedBox(width: 10),
+                                  Text(
+                                    formatTime(remainingSeconds),
+                                    style: const TextStyle(
+                                        fontSize: 32,
+                                        color: Colors.white,
+                                        fontFamily: 'SFDigital'),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                          const SizedBox(width: 30),
+                          const SizedBox(width: 45),
                           Padding(
                             padding: const EdgeInsets.only(top: 6),
                             child: Image.asset(

@@ -49,5 +49,11 @@
 	<key>NSUserNotificationUsageDescription</key>
     <string>We need permission to send you notifications for important updates.</string>
 
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>mailto</string>
+    </array>
+
+
 </dict>
 </plist>

@@ -4,14 +4,14 @@ import 'package:sysbotv2/widgets/custom_button.dart';
 
 import '../../widgets/gradient_text.dart';
 
-class FlexFactorScreen extends StatefulWidget {
-  const FlexFactorScreen({super.key});
+class QuestionsScreen extends StatefulWidget {
+  const QuestionsScreen({super.key});
 
   @override
-  State<FlexFactorScreen> createState() => _FlexFactorScreenState();
+  State<QuestionsScreen> createState() => _QuestionsScreenState();
 }
 
-class _FlexFactorScreenState extends State<FlexFactorScreen> {
+class _QuestionsScreenState extends State<QuestionsScreen> {
   final carouselController = PageController();
   int currentIndex = 0;
   List<String> selectedFlexFactors = [];
@@ -374,7 +374,7 @@ class _CarouselItemState extends State<CarouselItem> {
         widget.selectedListItems.add(flagTitle);
       }
       // Notify the parent widget to rebuild the button
-      (context.findAncestorStateOfType<_FlexFactorScreenState>()!)
+      (context.findAncestorStateOfType<_QuestionsScreenState>()!)
           .setState(() {});
     });
   }
@@ -420,7 +420,7 @@ class _OptionContainerState extends State<OptionContainer> {
                 widget.title,
                 style: TextStyle(
                   fontFamily: 'SFProRound',
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w600,
                   color: Colors.white,
                   fontSize: 11,
                 ),

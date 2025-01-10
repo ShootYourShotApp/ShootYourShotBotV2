@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sysbotv2/widgets/custom_button.dart';
 import 'package:sysbotv2/widgets/gradient_text.dart';
 
+import '../../widgets/rizz_report_option_widget.dart';
+
 class RizzQuizScreen extends StatelessWidget {
   const RizzQuizScreen({super.key});
 
@@ -46,27 +48,27 @@ class RizzQuizScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      OptionsWidget(label: 'Overall', iconPath: 'assets/images/100-emoji.png'),
+                      OptionsWidget(label: 'Overall', iconPath: 'assets/images/100-emoji.png', percentage: 100),
                       const SizedBox(width: 20),
-                      OptionsWidget(label: 'Juice Level', iconPath: 'assets/images/juice-box-icon.png'),
+                      OptionsWidget(label: 'Juice Level', iconPath: 'assets/images/juice-box-icon.png', percentage: 100),
                     ],
                   ),
                   const SizedBox(height: 28),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      OptionsWidget(label: 'Flex Factor', iconPath: 'assets/images/flexed-biceps-icon.png'),
+                      OptionsWidget(label: 'Flex Factor', iconPath: 'assets/images/flexed-biceps-icon.png', percentage: 100),
                       const SizedBox(width: 20),
-                      OptionsWidget(label: 'Pickup Game', iconPath: 'assets/images/ball.png'),
+                      OptionsWidget(label: 'Pickup Game', iconPath: 'assets/images/ball.png', percentage: 100),
                     ],
                   ),
                   const SizedBox(height: 28),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      OptionsWidget(label: 'Drip Check', iconPath: 'assets/images/water-drop-icon.png'),
+                      OptionsWidget(label: 'Drip Check', iconPath: 'assets/images/water-drop-icon.png', percentage: 100),
                       const SizedBox(width: 20),
-                      OptionsWidget(label: 'Goal Digger', iconPath: 'assets/images/trophy-icon.png'),
+                      OptionsWidget(label: 'Goal Digger', iconPath: 'assets/images/trophy-icon.png', percentage: 100),
                     ],
                   ),
                   const SizedBox(height: 24),
@@ -114,46 +116,3 @@ class RizzQuizScreen extends StatelessWidget {
   }
 }
 
-
-class OptionsWidget extends StatelessWidget {
-  const OptionsWidget({super.key, required this.iconPath, required this.label});
-  final String label;
-  final String iconPath;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        RichText(
-          text: TextSpan(
-            children: [
-              WidgetSpan(
-                child: Image.asset(
-                  iconPath,
-                  width: 15,
-                  height: 15,
-                ),
-              ),
-              TextSpan(
-                text: ' $label',
-                style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w900, fontFamily: 'SFProRound'),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 4),
-        Text('100%', style: TextStyle(fontFamily: 'SFCompactRounded', color: Colors.white, fontWeight: FontWeight.w500, fontSize: 10)),
-        const SizedBox(height: 6),
-        Container(
-          height: 7,
-          width: 90,
-          decoration: BoxDecoration(
-              color: const Color(0xff582AFF),
-              borderRadius: BorderRadius.circular(8)
-          ),
-        )
-      ],
-    );
-  }
-}

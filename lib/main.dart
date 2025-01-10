@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sysbotv2/screens/lets_voice_chat.dart';
-import 'package:sysbotv2/screens/onboarding/flex_factor_screen.dart';
+import 'package:sysbotv2/screens/main/level_up_screen.dart';
+import 'package:sysbotv2/screens/main/rizz_report.dart';
+import 'package:sysbotv2/screens/onboarding/questions_screen.dart';
 import 'package:sysbotv2/screens/onboarding/notification_permission_screen.dart';
 import 'package:sysbotv2/screens/onboarding/onboarding1.dart';
 import 'package:sysbotv2/screens/onboarding/referral_code_screen.dart';
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'SYS Bot',
-      home: SeeMyResult(),
+      home: LevelUpScreen(),
     );
   }
 }

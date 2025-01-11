@@ -36,21 +36,21 @@ class ChatProvider extends ChangeNotifier {
   String _currentCategory = ''; // Added for category support
   static const Map<String, String> categoryGreetings = {
     'Build Confidence':
-    "Yo, ready to level up your confidence? Let's work on owning the room, staying cool under pressure, and standing out socially. Whatever's holding you back, I'm here to help you break through.",
+        "Yo, ready to level up your confidence? Let's work on owning the room, staying cool under pressure, and standing out socially. Whatever's holding you back, I'm here to help you break through.",
     'Shoot Your Shot':
-    "Hey there! Looking to up your dating game? Whether it's making that first move, keeping conversations flowing, or building real connections - I've got your back. Let's make you irresistible!",
+        "Hey there! Looking to up your dating game? Whether it's making that first move, keeping conversations flowing, or building real connections - I've got your back. Let's make you irresistible!",
     'Look Good Dress Well':
-    "Welcome style seeker! Ready to transform your look and boost your presence? From fashion essentials to grooming tips, I'll help you craft a style that turns heads and feels authentically you.",
+        "Welcome style seeker! Ready to transform your look and boost your presence? From fashion essentials to grooming tips, I'll help you craft a style that turns heads and feels authentically you.",
     'Up Your Influence':
-    "Hey future leader! Ready to boost your social impact and command respect? Whether it's public speaking, networking, or leading teams - I'll help you develop that magnetic presence that draws people in.",
+        "Hey future leader! Ready to boost your social impact and command respect? Whether it's public speaking, networking, or leading teams - I'll help you develop that magnetic presence that draws people in.",
     'Escape The Matrix':
-    "What's up achiever! Time to break free from average and level up your life. Whether it's crushing goals, building habits, or maximizing productivity - I'm here to help you reach your full potential.",
+        "What's up achiever! Time to break free from average and level up your life. Whether it's crushing goals, building habits, or maximizing productivity - I'm here to help you reach your full potential.",
     '': "Yo! I’m Shoot Your Shot Bot, your AI dating coach. Got questions about dating, relationships, or even life advice? Whatever it is, I got you, let’s get to it!" // Default greeting
   };
   static const Map<String, Map<String, dynamic>> categoryConfig = {
     'Shoot Your Shot': {
       'prompt':
-      '''You are a friendly and engaging dating and relationship coach who can handle both casual conversation and specific advice questions. Your personality:
+          '''You are a friendly and engaging dating and relationship coach who can handle both casual conversation and specific advice questions. Your personality:
 
 1. Be warm and approachable - respond naturally to greetings, thanks, and casual comments
 2. Show empathy and understanding when users share their experiences
@@ -203,7 +203,7 @@ Remember to:
     },
     'Build Confidence': {
       'prompt':
-      '''You are a supportive and understanding confidence coach who balances friendly conversation with expert guidance. Your personality:
+          '''You are a supportive and understanding confidence coach who balances friendly conversation with expert guidance. Your personality:
 
 1. Be warm and encouraging - respond naturally to all types of messages
 2. Show genuine interest in users' experiences and concerns
@@ -348,7 +348,7 @@ Remember to:
     },
     'Look Good Dress Well': {
       'prompt':
-      '''You are a friendly and stylish fashion consultant who enjoys both casual chat and giving style advice. Your personality:
+          '''You are a friendly and stylish fashion consultant who enjoys both casual chat and giving style advice. Your personality:
 
 1. Be enthusiastic and approachable - engage naturally in all types of conversation
 2. Show genuine interest in users' style journey
@@ -491,7 +491,7 @@ Remember to:
     },
     'Up Your Influence': {
       'prompt':
-      '''You are a charismatic leadership coach who combines friendly conversation with powerful insights. Your personality:
+          '''You are a charismatic leadership coach who combines friendly conversation with powerful insights. Your personality:
 
 1. Be engaging and inspiring - handle all types of interaction naturally
 2. Show genuine interest in users' leadership journey
@@ -627,7 +627,7 @@ Remember to:
     },
     'Escape The Matrix': {
       'prompt':
-      '''You are a motivating success coach who combines friendly conversation with powerful guidance. Your personality:
+          '''You are a motivating success coach who combines friendly conversation with powerful guidance. Your personality:
 
 1. Be energetic and supportive - engage naturally in all interactions
 2. Show genuine interest in users' goals and dreams
@@ -965,7 +965,7 @@ Guidelines:
     } else {
       // Default conversational prompt if no category is selected
       contextPrompt +=
-      '''You are a friendly and helpful assistant. Engage naturally in conversation while providing valuable insights.
+          '''You are a friendly and helpful assistant. Engage naturally in conversation while providing valuable insights.
 
 Current conversation state:
 - Previous messages: ${_getRecentMessages()}

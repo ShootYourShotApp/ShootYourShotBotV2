@@ -39,21 +39,21 @@ class ConnectivityProvider with ChangeNotifier {
 
     final types = results
         .map((result) {
-      switch (result) {
-        case ConnectivityResult.wifi:
-          return 'WiFi';
-        case ConnectivityResult.mobile:
-          return 'Mobile Data';
-        case ConnectivityResult.ethernet:
-          return 'Ethernet';
-        case ConnectivityResult.vpn:
-          return 'VPN';
-        case ConnectivityResult.none:
-          return 'No Connection';
-        default:
-          return 'Unknown';
-      }
-    })
+          switch (result) {
+            case ConnectivityResult.wifi:
+              return 'WiFi';
+            case ConnectivityResult.mobile:
+              return 'Mobile Data';
+            case ConnectivityResult.ethernet:
+              return 'Ethernet';
+            case ConnectivityResult.vpn:
+              return 'VPN';
+            case ConnectivityResult.none:
+              return 'No Connection';
+            default:
+              return 'Unknown';
+          }
+        })
         .toSet()
         .join(', ');
 

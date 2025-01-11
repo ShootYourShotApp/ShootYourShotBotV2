@@ -35,7 +35,7 @@ class LetsVoiceChat extends StatelessWidget {
                     await precacheImage(
                         AssetImage('assets/images/voice-chat-bg.png'), context);
                     final chatProvider =
-                    Provider.of<ChatProvider>(context, listen: false);
+                        Provider.of<ChatProvider>(context, listen: false);
                     chatProvider.setCategory('');
                     Get.to(VoiceChatScreen());
                   },
@@ -91,7 +91,7 @@ class LetsVoiceChat extends StatelessWidget {
                           AssetImage('assets/images/voice-chat-bg.png'),
                           context);
                       final chatProvider =
-                      Provider.of<ChatProvider>(context, listen: false);
+                          Provider.of<ChatProvider>(context, listen: false);
                       chatProvider.setCategory('Shoot Your Shot');
                       Get.to(VoiceChatScreen());
                     },
@@ -107,7 +107,7 @@ class LetsVoiceChat extends StatelessWidget {
                           AssetImage('assets/images/voice-chat-bg.png'),
                           context);
                       final chatProvider =
-                      Provider.of<ChatProvider>(context, listen: false);
+                          Provider.of<ChatProvider>(context, listen: false);
                       chatProvider.setCategory(
                           'Build Confidence'); // Set the category before navigation
                       Get.to(VoiceChatScreen());
@@ -124,7 +124,7 @@ class LetsVoiceChat extends StatelessWidget {
                           AssetImage('assets/images/voice-chat-bg.png'),
                           context);
                       final chatProvider =
-                      Provider.of<ChatProvider>(context, listen: false);
+                          Provider.of<ChatProvider>(context, listen: false);
                       chatProvider.setCategory(
                           'Look Good Dress Well'); // Set the category before navigation
                       Get.to(VoiceChatScreen());
@@ -141,7 +141,7 @@ class LetsVoiceChat extends StatelessWidget {
                           AssetImage('assets/images/voice-chat-bg.png'),
                           context);
                       final chatProvider =
-                      Provider.of<ChatProvider>(context, listen: false);
+                          Provider.of<ChatProvider>(context, listen: false);
                       chatProvider.setCategory('Up Your Influence');
                       Get.to(VoiceChatScreen());
                     },
@@ -157,7 +157,7 @@ class LetsVoiceChat extends StatelessWidget {
                           AssetImage('assets/images/voice-chat-bg.png'),
                           context);
                       final chatProvider =
-                      Provider.of<ChatProvider>(context, listen: false);
+                          Provider.of<ChatProvider>(context, listen: false);
                       chatProvider.setCategory('Escape The Matrix');
                       Get.to(VoiceChatScreen());
                     },
@@ -190,7 +190,7 @@ class LetsVoiceChat extends StatelessWidget {
               icon: Padding(
                 padding: const EdgeInsets.only(bottom: 6),
                 child:
-                Image.asset('assets/images/score-card-icon.png', width: 24),
+                    Image.asset('assets/images/score-card-icon.png', width: 24),
               ),
               label: 'score card',
             ),
@@ -198,7 +198,7 @@ class LetsVoiceChat extends StatelessWidget {
               icon: Padding(
                 padding: const EdgeInsets.only(bottom: 6),
                 child:
-                Image.asset('assets/images/level-up-icon.png', width: 23),
+                    Image.asset('assets/images/level-up-icon.png', width: 23),
               ),
               label: 'level up',
             ),
@@ -219,12 +219,12 @@ class LetsVoiceChat extends StatelessWidget {
 class CustomContainer extends StatelessWidget {
   const CustomContainer(
       {super.key,
-        required this.title,
-        required this.subtitle,
-        required this.iconPath,
-        required this.trailing,
-        required this.gradientClr,
-        this.onTap});
+      required this.title,
+      required this.subtitle,
+      required this.iconPath,
+      required this.trailing,
+      required this.gradientClr,
+      this.onTap});
 
   final String title;
   final String subtitle;

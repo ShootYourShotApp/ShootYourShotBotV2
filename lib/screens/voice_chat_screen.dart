@@ -29,14 +29,14 @@ class _VoiceChatScreenState extends State<VoiceChatScreen> {
 
   void _onRiveInit(rive.Artboard artboard) {
     final controller =
-    rive.StateMachineController.fromArtboard(artboard, 'State Machine 1');
+        rive.StateMachineController.fromArtboard(artboard, 'State Machine 1');
     if (controller != null) {
       artboard.addController(controller);
       _controller = controller;
 
       // Get stage input
       final stageInput =
-      controller.findInput<double>('stage') as rive.SMINumber?;
+          controller.findInput<double>('stage') as rive.SMINumber?;
       print('Stage input found: ${stageInput != null}');
 
       // Set initial state (0=idle, 1=listen, 2=searching, 3=talking)
@@ -46,7 +46,7 @@ class _VoiceChatScreenState extends State<VoiceChatScreen> {
 
   void updateRiveState(ChatState newState) {
     final stageInput =
-    _controller?.findInput<double>('stage') as rive.SMINumber?;
+        _controller?.findInput<double>('stage') as rive.SMINumber?;
 
     switch (newState) {
       case ChatState.idle:
@@ -247,33 +247,33 @@ class CustomRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() => Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Image.asset(
-            status.value == 'listening'
-                ? 'assets/images/ear-icon.png'
-                : status.value == 'processing'
-                ? 'assets/images/processing-icon.png'
-                : status.value == 'speaking'
-                ? 'assets/images/speaking-icon.png'
-                : 'assets/images/ball.png',
-            width: 22),
-        const SizedBox(width: 6),
-        Text(
-            status.value == 'listening'
-                ? 'LISTENING...'
-                : status.value == 'processing'
-                ? 'PROCESSING...'
-                : status.value == 'speaking'
-                ? 'SPEAKING...'
-                : 'TAP SHOOT TO TALK',
-            style: TextStyle(
-                fontSize: 14,
-                color: Colors.white,
-                fontWeight: FontWeight.w900,
-                fontFamily: 'SFCompactRounded'))
-      ],
-    ));
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset(
+                status.value == 'listening'
+                    ? 'assets/images/ear-icon.png'
+                    : status.value == 'processing'
+                        ? 'assets/images/processing-icon.png'
+                        : status.value == 'speaking'
+                            ? 'assets/images/speaking-icon.png'
+                            : 'assets/images/ball.png',
+                width: 22),
+            const SizedBox(width: 6),
+            Text(
+                status.value == 'listening'
+                    ? 'LISTENING...'
+                    : status.value == 'processing'
+                        ? 'PROCESSING...'
+                        : status.value == 'speaking'
+                            ? 'SPEAKING...'
+                            : 'TAP SHOOT TO TALK',
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w900,
+                    fontFamily: 'SFCompactRounded'))
+          ],
+        ));
   }
 }

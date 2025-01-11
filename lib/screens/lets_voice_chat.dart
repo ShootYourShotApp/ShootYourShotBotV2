@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
+import 'package:sysbotv2/provider/chatProvider.dart';
 import 'package:sysbotv2/screens/voice_chat_screen.dart';
 
 class LetsVoiceChat extends StatelessWidget {
@@ -29,8 +31,12 @@ class LetsVoiceChat extends StatelessWidget {
                 ),
                 const SizedBox(height: 50),
                 GestureDetector(
-                  onTap: () async{
-                    await precacheImage(AssetImage('assets/images/voice-chat-bg.png'), context);
+                  onTap: () async {
+                    await precacheImage(
+                        AssetImage('assets/images/voice-chat-bg.png'), context);
+                    final chatProvider =
+                    Provider.of<ChatProvider>(context, listen: false);
+                    chatProvider.setCategory('');
                     Get.to(VoiceChatScreen());
                   },
                   child: Stack(
@@ -80,8 +86,13 @@ class LetsVoiceChat extends StatelessWidget {
                         fontSize: 20)),
                 const SizedBox(height: 24),
                 CustomContainer(
-                    onTap: () async{
-                      await precacheImage(AssetImage('assets/images/voice-chat-bg.png'), context);
+                    onTap: () async {
+                      await precacheImage(
+                          AssetImage('assets/images/voice-chat-bg.png'),
+                          context);
+                      final chatProvider =
+                      Provider.of<ChatProvider>(context, listen: false);
+                      chatProvider.setCategory('Shoot Your Shot');
                       Get.to(VoiceChatScreen());
                     },
                     title: 'Shoot Your Shot',
@@ -91,8 +102,14 @@ class LetsVoiceChat extends StatelessWidget {
                     gradientClr: [Color(0xffF6D365), Color(0xffFDA085)]),
                 const SizedBox(height: 10),
                 CustomContainer(
-                    onTap: () async{
-                      await precacheImage(AssetImage('assets/images/voice-chat-bg.png'), context);
+                    onTap: () async {
+                      await precacheImage(
+                          AssetImage('assets/images/voice-chat-bg.png'),
+                          context);
+                      final chatProvider =
+                      Provider.of<ChatProvider>(context, listen: false);
+                      chatProvider.setCategory(
+                          'Build Confidence'); // Set the category before navigation
                       Get.to(VoiceChatScreen());
                     },
                     title: 'Build Confidence',
@@ -102,8 +119,14 @@ class LetsVoiceChat extends StatelessWidget {
                     gradientClr: [Color(0xffFFFF00), Color(0xffEACDA3)]),
                 const SizedBox(height: 10),
                 CustomContainer(
-                    onTap: () async{
-                      await precacheImage(AssetImage('assets/images/voice-chat-bg.png'), context);
+                    onTap: () async {
+                      await precacheImage(
+                          AssetImage('assets/images/voice-chat-bg.png'),
+                          context);
+                      final chatProvider =
+                      Provider.of<ChatProvider>(context, listen: false);
+                      chatProvider.setCategory(
+                          'Look Good Dress Well'); // Set the category before navigation
                       Get.to(VoiceChatScreen());
                     },
                     title: 'Look Good Dress Well',
@@ -113,8 +136,13 @@ class LetsVoiceChat extends StatelessWidget {
                     gradientClr: [Color(0xff4FACFE), Color(0xff00F2FE)]),
                 const SizedBox(height: 10),
                 CustomContainer(
-                    onTap: () async{
-                      await precacheImage(AssetImage('assets/images/voice-chat-bg.png'), context);
+                    onTap: () async {
+                      await precacheImage(
+                          AssetImage('assets/images/voice-chat-bg.png'),
+                          context);
+                      final chatProvider =
+                      Provider.of<ChatProvider>(context, listen: false);
+                      chatProvider.setCategory('Up Your Influence');
                       Get.to(VoiceChatScreen());
                     },
                     title: 'Up Your Influence',
@@ -124,8 +152,13 @@ class LetsVoiceChat extends StatelessWidget {
                     gradientClr: [Color(0xff43E97B), Color(0xff38F9D7)]),
                 const SizedBox(height: 10),
                 CustomContainer(
-                    onTap: () async{
-                      await precacheImage(AssetImage('assets/images/voice-chat-bg.png'), context);
+                    onTap: () async {
+                      await precacheImage(
+                          AssetImage('assets/images/voice-chat-bg.png'),
+                          context);
+                      final chatProvider =
+                      Provider.of<ChatProvider>(context, listen: false);
+                      chatProvider.setCategory('Escape The Matrix');
                       Get.to(VoiceChatScreen());
                     },
                     title: 'Escape The Matrix',
@@ -148,20 +181,24 @@ class LetsVoiceChat extends StatelessWidget {
           currentIndex: 2,
           selectedItemColor: Colors.white,
           unselectedItemColor: Color(0xff979797),
-          selectedLabelStyle: TextStyle(fontFamily: 'Avenir', fontWeight: FontWeight.w500, fontSize: 13),
-          unselectedLabelStyle: TextStyle(fontFamily: 'Avenir', fontWeight: FontWeight.w500, fontSize: 13),
+          selectedLabelStyle: TextStyle(
+              fontFamily: 'Avenir', fontWeight: FontWeight.w500, fontSize: 13),
+          unselectedLabelStyle: TextStyle(
+              fontFamily: 'Avenir', fontWeight: FontWeight.w500, fontSize: 13),
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Padding(
                 padding: const EdgeInsets.only(bottom: 6),
-                child: Image.asset('assets/images/score-card-icon.png', width: 24),
+                child:
+                Image.asset('assets/images/score-card-icon.png', width: 24),
               ),
               label: 'score card',
             ),
             BottomNavigationBarItem(
               icon: Padding(
                 padding: const EdgeInsets.only(bottom: 6),
-                child: Image.asset('assets/images/level-up-icon.png', width: 23),
+                child:
+                Image.asset('assets/images/level-up-icon.png', width: 23),
               ),
               label: 'level up',
             ),
@@ -182,12 +219,12 @@ class LetsVoiceChat extends StatelessWidget {
 class CustomContainer extends StatelessWidget {
   const CustomContainer(
       {super.key,
-      required this.title,
-      required this.subtitle,
-      required this.iconPath,
-      required this.trailing,
-      required this.gradientClr,
-      this.onTap});
+        required this.title,
+        required this.subtitle,
+        required this.iconPath,
+        required this.trailing,
+        required this.gradientClr,
+        this.onTap});
 
   final String title;
   final String subtitle;

@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:sysbotv2/screens/lets_voice_chat.dart';
 import 'package:sysbotv2/widgets/custom_button.dart';
 
 import '../../widgets/gradient_text.dart';
@@ -110,7 +111,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                       title: 'Flex Factor',
                       iconPath: 'assets/images/flexed-biceps-icon.png',
                       subtitle:
-                          'At a party, you spot someone you like. Your next move is to ____.',
+                      'At a party, you spot someone you like. Your next move is to ____.',
                       txtGradient: [Color(0xffFFFF00), Color(0xffEACDA3)],
                     ),
                     CarouselItem(
@@ -126,7 +127,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                       allItems: juiceLevelOptions,
                       title: 'Juice Level',
                       subtitle:
-                          'In a group, your way to stand\nout is to ____.',
+                      'In a group, your way to stand\nout is to ____.',
                       iconPath: 'assets/images/juice-box-icon.png',
                       txtGradient: const [Color(0xff43E97B), Color(0xff43E97B)],
                     ),
@@ -135,7 +136,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                       allItems: pickupGameOptions,
                       title: 'Pickup Game',
                       subtitle:
-                          'You see your crush and walk over.\nYour first words are ____.',
+                      'You see your crush and walk over.\nYour first words are ____.',
                       iconPath: 'assets/images/ball.png',
                       txtGradient: const [Color(0xffF6D365), Color(0xffFDA085)],
                     ),
@@ -179,6 +180,11 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                       print(selectedJuiceLevel);
                       print(selectedPickupGame);
                       print(selectedGoalDigger);
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LetsVoiceChat()),
+                              (route) => false);
                     } else {
                       carouselController.nextPage(
                         duration: const Duration(milliseconds: 500),
@@ -255,8 +261,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
       };
     } else {
       return {
-        'bgClr': const Color(0xff582AFF).withValues(alpha: 0.41),
-        'txtClr': const Color(0xffffffff).withValues(alpha: 0.5),
+        'bgClr': const Color(0xffb7a3fb),
+        'txtClr': const Color(0xffffffff).withAlpha(100),
       };
     }
   }
@@ -265,12 +271,12 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
 class CarouselItem extends StatefulWidget {
   const CarouselItem(
       {super.key,
-      required this.selectedListItems,
-      required this.allItems,
-      required this.title,
-      required this.iconPath,
-      required this.subtitle,
-      required this.txtGradient});
+        required this.selectedListItems,
+        required this.allItems,
+        required this.title,
+        required this.iconPath,
+        required this.subtitle,
+        required this.txtGradient});
 
   final List<String> selectedListItems;
   final List<String> allItems;
@@ -420,7 +426,7 @@ class _OptionContainerState extends State<OptionContainer> {
                 widget.title,
                 style: TextStyle(
                   fontFamily: 'SFProRound',
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w500,
                   color: Colors.white,
                   fontSize: 11,
                 ),

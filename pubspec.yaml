@@ -42,6 +42,7 @@ dependencies:
   syncfusion_flutter_gauges: ^28.1.38
   url_launcher: ^6.3.1
   package_info_plus: ^8.1.2
+  outlined_text: ^1.0.1
   provider: ^6.1.2
   record: ^5.2.0
   just_audio: ^0.9.42
@@ -96,6 +97,8 @@ flutter:
           weight: 900
     - family: SFProRound
       fonts:
+        - asset: assets/fonts/SFProRounded-Light.ttf
+          weight: 300
         - asset: assets/fonts/SFProRound-Regular.ttf
           weight: 400
         - asset: assets/fonts/SFProRound-Medium.ttf

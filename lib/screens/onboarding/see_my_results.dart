@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:sysbotv2/screens/onboarding/referral_code_bottom_sheet.dart';
+import 'package:sysbotv2/screens/upgrade/upgrade_screen.dart';
 import 'package:sysbotv2/widgets/custom_button.dart';
 import 'package:sysbotv2/widgets/gradient_text.dart';
 
@@ -135,6 +136,7 @@ class SeeMyResult extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: CustomButton(
+                        onTap: () => Get.to(UpgradeScreen()),
                         title: 'Get Shot Bot Pro',
                         iconPath: 'assets/images/raising-hands-emoji.png',
                         iconSize: 22),

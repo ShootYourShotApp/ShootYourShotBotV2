@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:sysbotv2/screens/upgrade/upgrade_screen.dart';
+import 'package:get/get.dart';
 
 import '../../utils/functions/launchEmail.dart';
 import '../../utils/functions/open_url.dart';
@@ -28,7 +30,6 @@ class MenuBottomSheet extends StatefulWidget {
 }
 
 class _MenuBottomSheetState extends State<MenuBottomSheet> {
-
   @override
   void initState() {
     super.initState();
@@ -55,6 +56,7 @@ class _MenuBottomSheetState extends State<MenuBottomSheet> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 MenuItemWidget(
+                    onTap: () => Get.to(UpgradeScreen()),
                     iconPath: 'assets/images/crown-icon.png',
                     title: 'Get Shot Your Shot Bot Pro'),
                 Divider(
@@ -63,11 +65,12 @@ class _MenuBottomSheetState extends State<MenuBottomSheet> {
                     color: Color(0xff434343).withValues(alpha: 0.44)),
                 const SizedBox(height: 24),
                 MenuItemWidget(
-                    onTap: (){
+                    onTap: () {
                       openUrl(
-                          androidUrl: "https://play.google.com/store/apps/details?id=com.sysbot.app.sysbot",
-                          iosUrl: "https://apps.apple.com/us/app/shoot-your-shot-ai-wingman/id6615074058"
-                      );
+                          androidUrl:
+                              "https://play.google.com/store/apps/details?id=com.sysbot.app.sysbot",
+                          iosUrl:
+                              "https://apps.apple.com/us/app/shoot-your-shot-ai-wingman/id6615074058");
                     },
                     iconPath: 'assets/images/star-icon.png',
                     title: 'Rate Us',
@@ -78,8 +81,9 @@ class _MenuBottomSheetState extends State<MenuBottomSheet> {
                     color: Color(0xff434343).withValues(alpha: 0.44)),
                 const SizedBox(height: 24),
                 MenuItemWidget(
-                    onTap: (){
-                      Share.share('Download the app and use my referral code "$referralCode"');
+                    onTap: () {
+                      Share.share(
+                          'Download the app and use my referral code "$referralCode"');
                     },
                     iconPath: 'assets/images/ticket-icon.png',
                     title: 'Share my Referral Code',
@@ -90,13 +94,12 @@ class _MenuBottomSheetState extends State<MenuBottomSheet> {
                     color: Color(0xff434343).withValues(alpha: 0.44)),
                 const SizedBox(height: 24),
                 MenuItemWidget(
-                    onTap: () async{
+                    onTap: () async {
                       await getAppVersion();
                       launchEmail(
                           supportEmail: "support@shootyourshot.ai",
                           subject: "Shoot Your Shot Support",
-                          body: "\n\nUser ID: 01\nApp Version: $versionName"
-                      );
+                          body: "\n\nUser ID: 01\nApp Version: $versionName");
                     },
                     iconPath: 'assets/images/email-icon.png',
                     title: 'Contact Support',
@@ -110,21 +113,29 @@ class _MenuBottomSheetState extends State<MenuBottomSheet> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           openUrl(
                               androidUrl: "http://shootyourshot.ai/privacy",
-                              iosUrl: "http://shootyourshot.ai/privacy"
-                          );
+                              iosUrl: "http://shootyourshot.ai/privacy");
                         },
-                        child: Text('Privacy', style: TextStyle(fontFamily: 'SFProRound', fontSize: 13, fontWeight: FontWeight.w400, color: Colors.white))),
+                        child: Text('Privacy',
+                            style: TextStyle(
+                                fontFamily: 'SFProRound',
+                                fontSize: 13,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.white))),
                     GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           openUrl(
                               androidUrl: "http://shootyourshot.ai/terms",
-                              iosUrl: "http://shootyourshot.ai/terms"
-                          );
+                              iosUrl: "http://shootyourshot.ai/terms");
                         },
-                        child: Text('Terms', style: TextStyle(fontFamily: 'SFProRound', fontSize: 13, fontWeight: FontWeight.w400, color: Colors.white))),
+                        child: Text('Terms',
+                            style: TextStyle(
+                                fontFamily: 'SFProRound',
+                                fontSize: 13,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.white))),
                   ],
                 )
               ],
@@ -151,12 +162,15 @@ class _MenuBottomSheetState extends State<MenuBottomSheet> {
       });
     }
   }
-
 }
 
 class MenuItemWidget extends StatelessWidget {
   const MenuItemWidget(
-      {super.key, required this.iconPath, required this.title, this.iconSize, this.onTap});
+      {super.key,
+      required this.iconPath,
+      required this.title,
+      this.iconSize,
+      this.onTap});
 
   final String iconPath;
   final double? iconSize;

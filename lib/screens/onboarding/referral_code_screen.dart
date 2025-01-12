@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sysbotv2/widgets/custom_button.dart';
 
+import 'notification_permission_screen.dart';
+
 class ReferralCodeScreen extends StatelessWidget {
   ReferralCodeScreen({super.key});
 
@@ -10,7 +12,6 @@ class ReferralCodeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Color(0xff0A0A0A),
       body: SafeArea(
@@ -24,7 +25,7 @@ class ReferralCodeScreen extends StatelessWidget {
                       fontFamily: 'SFProRound',
                       fontWeight: FontWeight.w900,
                       color: Colors.white,
-                      fontSize: width * 0.0777)),
+                      fontSize: 28)),
               const Spacer(flex: 3),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 6),
@@ -37,7 +38,8 @@ class ReferralCodeScreen extends StatelessWidget {
                       color: const Color(0xffffffff),
                       fontSize: 16),
                   decoration: InputDecoration(
-                      contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 16),
                       filled: true,
                       fillColor: const Color(0xff414141),
                       focusedBorder: OutlineInputBorder(
@@ -58,10 +60,29 @@ class ReferralCodeScreen extends StatelessWidget {
               const Spacer(flex: 4),
               CustomButton(
                   onTap: () {
-                    if (refCodeController.text == refCode) {
+                    if (refCodeController.text.trim() == refCode) {
                       // referral code is valid
-                    } else {
-                      Get.snackbar('', '', titleText: Text('Invalid Code', style: TextStyle(fontFamily: 'Mont', fontWeight: FontWeight.w600, fontSize: 16, color: Colors.white)), messageText: SizedBox(), colorText: Colors.white, icon: Icon(Icons.close, size: 20, color: Colors.white), borderRadius: 12, backgroundColor: const Color(0xffFF3B30), shouldIconPulse: false, padding: EdgeInsets.only(left: 20, top: 12, bottom: 12));
+                    } else if(refCodeController.text.trim().isEmpty){
+                      //No Referral Code enter
+                      Get.to(NotificationPermissionScreen());
+                    }
+                    else {
+                      Get.snackbar('', '',
+                          titleText: Text('Invalid Code',
+                              style: TextStyle(
+                                  fontFamily: 'Mont',
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                  color: Colors.white)),
+                          messageText: SizedBox(),
+                          colorText: Colors.white,
+                          icon:
+                              Icon(Icons.close, size: 20, color: Colors.white),
+                          borderRadius: 12,
+                          backgroundColor: const Color(0xffFF3B30),
+                          shouldIconPulse: false,
+                          padding:
+                              EdgeInsets.only(left: 20, top: 12, bottom: 12));
                     }
                   },
                   title: 'Continue'),

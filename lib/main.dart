@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:sysbotv2/provider/chatProvider.dart';
-import 'package:sysbotv2/screens/onboarding/flex_factor_screen.dart';
+import 'package:sysbotv2/screens/bottom_nav_bar.dart';
+import 'package:sysbotv2/screens/main/lets_voice_chat.dart';
+import 'package:sysbotv2/screens/main/level_up_screen.dart';
+import 'package:sysbotv2/screens/onboarding/referral_code_screen.dart';
+import 'package:sysbotv2/screens/onboarding/welcome_screen.dart';
+import 'package:sysbotv2/screens/onboarding/questions_screen.dart';
+import 'package:sysbotv2/screens/onboarding/rizz_quiz_screen.dart';
+import 'package:sysbotv2/screens/upgrade/upgrade_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,6 +17,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -19,7 +27,7 @@ class MyApp extends StatelessWidget {
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'SYS Bot',
-        home: FlexFactorScreen(),
+        home: WelcomeScreen(),
       ),
     );
   }

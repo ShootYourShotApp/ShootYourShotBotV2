@@ -8,7 +8,8 @@ Future<void> askNotificationPermission() async {
   } else if (status.isDenied) {
     print('Notification permission denied.');
   } else if (status.isPermanentlyDenied) {
-    print('Notification permission permanently denied. Opening app settings...');
+    print(
+        'Notification permission permanently denied. Opening app settings...');
     await openAppSettings();
   }
 }

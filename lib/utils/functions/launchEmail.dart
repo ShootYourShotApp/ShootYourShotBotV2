@@ -1,6 +1,9 @@
 import 'package:url_launcher/url_launcher.dart';
 
-Future<void> launchEmail({required String subject, required String body, required String supportEmail}) async {
+Future<void> launchEmail(
+    {required String subject,
+    required String body,
+    required String supportEmail}) async {
   final Uri emailUri = Uri(
     scheme: 'mailto',
     path: supportEmail,

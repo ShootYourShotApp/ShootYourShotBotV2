@@ -23,6 +23,7 @@ class ChatProvider extends ChangeNotifier {
   final _audioPlayer = AudioPlayer();
   final SpeechToText _speech = SpeechToText();
   final List<Message> _conversationHistory = [];
+
   // final ttsService = ElevenLabsService(
   //   apiKey: 'sk_5757615d3628c14eb5a1eb618e158331cbc0f823d78258f0',
   // );
@@ -45,7 +46,8 @@ class ChatProvider extends ChangeNotifier {
         "Hey future leader! Ready to boost your social impact and command respect? Whether it's public speaking, networking, or leading teams - I'll help you develop that magnetic presence that draws people in.",
     'Escape The Matrix':
         "What's up achiever! Time to break free from average and level up your life. Whether it's crushing goals, building habits, or maximizing productivity - I'm here to help you reach your full potential.",
-    '': "Yo! I’m Shoot Your Shot Bot, your AI dating coach. Got questions about dating, relationships, or even life advice? Whatever it is, I got you, let’s get to it!" // Default greeting
+    '': "Yo! I’m Shoot Your Shot Bot, your AI dating coach. Got questions about dating, relationships, or even life advice? Whatever it is, I got you, let’s get to it!"
+    // Default greeting
   };
   static const Map<String, Map<String, dynamic>> categoryConfig = {
     'Shoot Your Shot': {
@@ -751,16 +753,21 @@ Remember to:
       ]
     }
   };
+
   ChatState get state => _state;
+
   bool get isInConversation => _isInConversation;
+
   List<Message> get conversationHistory =>
       List.unmodifiable(_conversationHistory);
+
   String get currentCategory => _currentCategory;
 
   ChatProvider() {
     _initializeSpeech();
     _setupAudioPlayerListeners();
   }
+
   void setCategory(String category) {
     _currentCategory = category;
     _conversationHistory.clear();

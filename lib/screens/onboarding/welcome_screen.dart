@@ -1,10 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:sysbotv2/screens/onboarding/referral_code_screen.dart';
 
 import '../../widgets/custom_button.dart';
 
-class Onboarding1 extends StatelessWidget {
-  const Onboarding1({super.key});
+class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,10 @@ class Onboarding1 extends StatelessWidget {
             Image.asset('assets/images/logo.png', width: width),
             const Spacer(),
             const Spacer(),
-            CustomButton(title: 'Continue', iconPath: 'assets/images/smiling-face-emoji.png'),
+            CustomButton(
+                onTap: () => Get.offAll(ReferralCodeScreen()),
+                title: 'Continue',
+                iconPath: 'assets/images/smiling-face-emoji.png'),
             const SizedBox(height: 15),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),

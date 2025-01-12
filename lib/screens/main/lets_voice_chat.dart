@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:sysbotv2/provider/chatProvider.dart';
-import 'package:sysbotv2/screens/voice_chat_screen.dart';
+import 'package:sysbotv2/screens/main/voice_chat_screen.dart';
+
+import '../../widgets/dialogs/level_up_dialog.dart';
 
 class LetsVoiceChat extends StatelessWidget {
   const LetsVoiceChat({super.key});
@@ -20,6 +22,25 @@ class LetsVoiceChat extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 40),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: GestureDetector(
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return LevelUpDialog(
+                                  text:
+                                      'Be sure to select a category\nto get credit for your\ntalking time and level up in\n');
+                            },
+                          );
+                        },
+                        child: Image.asset('assets/images/hint-icon.png',
+                            width: 33, color: const Color(0xff5B5B5B))),
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.only(left: 12),
                   child: Text("Let's Voice Chat",
@@ -37,7 +58,7 @@ class LetsVoiceChat extends StatelessWidget {
                     final chatProvider =
                         Provider.of<ChatProvider>(context, listen: false);
                     chatProvider.setCategory('');
-                    Get.to(VoiceChatScreen());
+                    Get.to(VoiceChatScreen(iconPath: 'assets/images/robot-icon.png'));
                   },
                   child: Stack(
                     children: [
@@ -93,7 +114,7 @@ class LetsVoiceChat extends StatelessWidget {
                       final chatProvider =
                           Provider.of<ChatProvider>(context, listen: false);
                       chatProvider.setCategory('Shoot Your Shot');
-                      Get.to(VoiceChatScreen());
+                      Get.to(VoiceChatScreen(iconPath: 'assets/images/ball-timer.png'));
                     },
                     title: 'Shoot Your Shot',
                     subtitle: 'Pickup lines & tips to heat things up',
@@ -110,7 +131,7 @@ class LetsVoiceChat extends StatelessWidget {
                           Provider.of<ChatProvider>(context, listen: false);
                       chatProvider.setCategory(
                           'Build Confidence'); // Set the category before navigation
-                      Get.to(VoiceChatScreen());
+                      Get.to(VoiceChatScreen(iconPath: 'assets/images/flexed-biceps-icon-timer.png'));
                     },
                     title: 'Build Confidence',
                     subtitle: 'Exercises to strengthen your self assurance',
@@ -127,7 +148,7 @@ class LetsVoiceChat extends StatelessWidget {
                           Provider.of<ChatProvider>(context, listen: false);
                       chatProvider.setCategory(
                           'Look Good Dress Well'); // Set the category before navigation
-                      Get.to(VoiceChatScreen());
+                      Get.to(VoiceChatScreen(iconPath: 'assets/images/water-drop-timer.png'));
                     },
                     title: 'Look Good Dress Well',
                     subtitle: 'Let’s level up your style and grooming',
@@ -143,7 +164,7 @@ class LetsVoiceChat extends StatelessWidget {
                       final chatProvider =
                           Provider.of<ChatProvider>(context, listen: false);
                       chatProvider.setCategory('Up Your Influence');
-                      Get.to(VoiceChatScreen());
+                      Get.to(VoiceChatScreen(iconPath: 'assets/images/juice-box-timer.png'));
                     },
                     title: 'Up Your Influence',
                     subtitle: 'Learn how to take lead and captivate',
@@ -159,7 +180,7 @@ class LetsVoiceChat extends StatelessWidget {
                       final chatProvider =
                           Provider.of<ChatProvider>(context, listen: false);
                       chatProvider.setCategory('Escape The Matrix');
-                      Get.to(VoiceChatScreen());
+                      Get.to(VoiceChatScreen(iconPath: 'assets/images/trophy-timer.png'));
                     },
                     title: 'Escape The Matrix',
                     subtitle: 'Crush your goals and stay ambitious',

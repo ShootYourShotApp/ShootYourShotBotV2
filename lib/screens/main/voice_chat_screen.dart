@@ -6,7 +6,8 @@ import 'package:rive/rive.dart' as rive;
 import 'package:sysbotv2/provider/chatProvider.dart';
 
 class VoiceChatScreen extends StatefulWidget {
-  const VoiceChatScreen({super.key});
+  const VoiceChatScreen({super.key, required this.iconPath});
+  final String iconPath;
 
   @override
   State<VoiceChatScreen> createState() => _VoiceChatScreenState();
@@ -17,6 +18,7 @@ class _VoiceChatScreenState extends State<VoiceChatScreen> {
   int remainingSeconds = 30 * 60; // 30 minutes in seconds
   RxString status = 'stop'.obs;
   bool _hasPlayedGreeting = false;
+
   // Rive animation controllers
   rive.StateMachineController? _controller;
 
@@ -189,7 +191,7 @@ class _VoiceChatScreenState extends State<VoiceChatScreen> {
                           Padding(
                             padding: const EdgeInsets.only(top: 6),
                             child: Image.asset(
-                                'assets/images/muscle-time-icon.png',
+                                widget.iconPath,
                                 width: 28),
                           ),
                           const SizedBox(width: 16),

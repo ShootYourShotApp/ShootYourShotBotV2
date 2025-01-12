@@ -8,14 +8,19 @@ class GradientCircularProgress extends StatelessWidget {
   });
 
   final double percentage; // Current value to display
-  final List<Color> gradientColors = [Color(0xffF6D365), Color(0xffCCB7EE), Color(0xffFF6D6D), Color(0xffF6D365)];
+  final List<Color> gradientColors = [
+    Color(0xffF6D365),
+    Color(0xffCCB7EE),
+    Color(0xffFF6D6D),
+    Color(0xffF6D365)
+  ];
 
   @override
   Widget build(BuildContext context) {
     // Calculate stops dynamically based on the number of gradient colors
     final List<double> stops = List.generate(
       gradientColors.length,
-          (index) => index / (gradientColors.length - 1),
+      (index) => index / (gradientColors.length - 1),
     );
 
     return SizedBox(

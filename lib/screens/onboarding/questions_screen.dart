@@ -1,6 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:sysbotv2/screens/main/lets_voice_chat.dart';
 import 'package:sysbotv2/screens/onboarding/see_my_results.dart';
 import 'package:sysbotv2/widgets/custom_button.dart';
 import 'package:get/get.dart';
@@ -209,7 +208,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                         fontFamily: 'SFProRound',
                         fontWeight: FontWeight.w400,
                         color: Colors.white,
-                        fontSize: 14,
+                        fontSize: width*0.03888,
                       ),
                     ),
                     TextSpan(
@@ -218,7 +217,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                         fontFamily: 'SFProRound',
                         fontWeight: FontWeight.w800,
                         color: Colors.white,
-                        fontSize: 14,
+                        fontSize: width*0.03888,
                       ),
                     ),
                   ],
@@ -290,13 +289,14 @@ class CarouselItem extends StatefulWidget {
 class _CarouselItemState extends State<CarouselItem> {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Column(
       children: [
         const SizedBox(height: 36),
         Center(
           child: Image.asset(
             widget.iconPath,
-            width: 50,
+            width: width*0.1388,
           ),
         ),
         const SizedBox(height: 8),
@@ -307,7 +307,7 @@ class _CarouselItemState extends State<CarouselItem> {
             style: TextStyle(
               fontFamily: 'LuckiestGuy',
               color: Colors.white,
-              fontSize: 32,
+              fontSize: width*0.0888,
             ),
           ),
         ),
@@ -321,7 +321,7 @@ class _CarouselItemState extends State<CarouselItem> {
               fontFamily: 'SFCompactRounded',
               fontWeight: FontWeight.w400,
               color: Colors.white,
-              fontSize: 17,
+              fontSize: width*0.04722,
             ),
           ),
         ),
@@ -350,7 +350,7 @@ class _CarouselItemState extends State<CarouselItem> {
                   fontFamily: 'SFProRound',
                   fontWeight: FontWeight.w400,
                   color: Colors.white,
-                  fontSize: 14,
+                  fontSize: width*0.03888,
                 ),
               ),
               TextSpan(
@@ -359,7 +359,7 @@ class _CarouselItemState extends State<CarouselItem> {
                   fontFamily: 'SFProRound',
                   fontWeight: FontWeight.w800,
                   color: Colors.white,
-                  fontSize: 14,
+                  fontSize: width*0.03888,
                 ),
               ),
             ],

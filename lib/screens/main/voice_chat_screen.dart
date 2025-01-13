@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart' as rive;
 import 'package:sysbotv2/provider/chatProvider.dart';
+import 'package:sysbotv2/widgets/dialogs/how_it_works_dialog.dart';
 
 class VoiceChatScreen extends StatefulWidget {
   const VoiceChatScreen({super.key, required this.iconPath});
@@ -195,9 +196,21 @@ class _VoiceChatScreenState extends State<VoiceChatScreen> {
                                 width: 28),
                           ),
                           const SizedBox(width: 16),
-                          Image.asset(
-                              'assets/images/fa_question-circle-icon.png',
-                              width: 24),
+                          GestureDetector(
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return HowItWorksDialog(
+                                      text:
+                                      'Be sure to select a category\nto get credit for your\ntalking time and level up in\n');
+                                },
+                              );
+                            },
+                            child: Image.asset(
+                                'assets/images/fa_question-circle-icon.png',
+                                width: 24),
+                          ),
                         ],
                       ),
                       const SizedBox(height: 40),

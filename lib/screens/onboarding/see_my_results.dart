@@ -29,7 +29,7 @@ class SeeMyResult extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 24),
+                  SizedBox(height: height*0.0319),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Row(
@@ -37,13 +37,13 @@ class SeeMyResult extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Icon(Icons.close,
-                            size: 20, color: const Color(0xff979797)),
+                            size: width*0.0555, color: const Color(0xff979797)),
                         Padding(
-                          padding: const EdgeInsets.only(top: 6, bottom: 4),
+                          padding: EdgeInsets.only(top: height*0.008, bottom: 4),
                           child: Image.asset('assets/images/eyes-icon.png',
-                              width: 46),
+                              width: width*0.12777),
                         ),
-                        const SizedBox(width: 24)
+                        SizedBox(width: width*0.0666)
                       ],
                     ),
                   ),
@@ -53,16 +53,16 @@ class SeeMyResult extends StatelessWidget {
                           style: TextStyle(
                               fontFamily: 'LuckiestGuy',
                               color: Colors.white,
-                              fontSize: 32))),
-                  const Spacer(flex: 2),
+                              fontSize: width*0.0888))),
+                  const Spacer(),
                   Container(
-                    width: 245,
-                    height: 350,
+                    width: height*0.4654 * (245 / 350),
+                    height: height*0.4654,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
                         boxShadow: [
                           BoxShadow(
-                              color: const Color(0xff582AFF),
+                              color: const Color(0xff582AFF).withValues(alpha: 0.6),
                               spreadRadius: 1,
                               blurRadius: 70,
                               offset: const Offset(0, 2))
@@ -73,7 +73,7 @@ class SeeMyResult extends StatelessWidget {
                             fit: BoxFit.fill)),
                     child: Column(
                       children: [
-                        const SizedBox(height: 110),
+                        SizedBox(height: height*0.1462),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -118,7 +118,7 @@ class SeeMyResult extends StatelessWidget {
                             style: TextStyle(
                                 fontFamily: 'ShareTechMono',
                                 color: Colors.white,
-                                fontSize: 12))
+                                fontSize: width*0.0333))
                       ],
                     ),
                   ),
@@ -206,6 +206,7 @@ class OptionsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -215,15 +216,15 @@ class OptionsWidget extends StatelessWidget {
               WidgetSpan(
                 child: Image.asset(
                   iconPath,
-                  width: 15,
-                  height: 15,
+                  width: width*0.04166,
+                  height: width*0.04166,
                 ),
               ),
               TextSpan(
                 text: ' $label',
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 12,
+                    fontSize: width*0.0333,
                     fontWeight: FontWeight.w900,
                     fontFamily: 'SFProRound'),
               ),
@@ -247,7 +248,7 @@ class OptionsWidget extends StatelessWidget {
         const SizedBox(height: 6),
         Container(
           height: 7,
-          width: 85,
+          width: width*0.2362,
           decoration: BoxDecoration(
               color: const Color(0xff582AFF),
               borderRadius: BorderRadius.circular(8)),

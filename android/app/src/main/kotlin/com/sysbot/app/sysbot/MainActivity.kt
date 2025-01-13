@@ -1,4 +1,4 @@
-package com.sysbot.app.sysbot.sysbotv2
+package com.sysbot.app.sysbot
 
 import io.flutter.embedding.android.FlutterActivity
 

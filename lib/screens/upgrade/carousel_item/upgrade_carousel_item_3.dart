@@ -9,6 +9,7 @@ class UpgradeCarouselItem3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Column(
       children: [
         Padding(
@@ -18,24 +19,24 @@ class UpgradeCarouselItem3 extends StatelessWidget {
               child: GestureDetector(
                   onTap: () => Get.back(),
                   child: Icon(Icons.close,
-                      color: const Color(0xff979797), size: 20))),
+                      color: const Color(0xff979797), size: width*0.0555))),
         ),
         Center(
             child: Image.asset('assets/images/game-controller-icon.png',
-                width: 48)),
+                width: width*0.1333)),
         const SizedBox(height: 8),
         GradientText(
             textWidget: Text('Rizz Games'.toUpperCase(),
                 style: TextStyle(
                     fontFamily: 'LuckiestGuy',
                     color: Colors.white,
-                    fontSize: 32))),
+                    fontSize: width*0.0888))),
         const SizedBox(height: 12),
         Expanded(
           child: Stack(
             children: [
               Positioned(
-                top: 38,
+                top: height*0.0505,
                 left: 0,
                 right: 0,
                 child: Center(
@@ -46,7 +47,7 @@ class UpgradeCarouselItem3 extends StatelessWidget {
                         boxShadow: [
                           BoxShadow(
                               color: const Color(0xff582AFF)
-                                  .withValues(alpha: 0.7),
+                                  .withValues(alpha: 0.6),
                               spreadRadius: 0,
                               blurRadius: 65,
                               offset: const Offset(0, 2)),
@@ -62,12 +63,12 @@ class UpgradeCarouselItem3 extends StatelessWidget {
                         )),
                     child: Column(
                       children: [
-                        const SizedBox(height: 236),
+                        SizedBox(height: height*0.29255),
                         Text('Level Up Gamification',
                             style: TextStyle(
                                 fontFamily: 'SFProRound',
                                 color: Colors.white,
-                                fontSize: 16,
+                                fontSize: width*0.0444,
                                 fontWeight: FontWeight.w900)),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -77,7 +78,7 @@ class UpgradeCarouselItem3 extends StatelessWidget {
                               style: TextStyle(
                                   fontFamily: 'SFProRound',
                                   color: Colors.white,
-                                  fontSize: 14,
+                                  fontSize: width*0.03888,
                                   fontWeight: FontWeight.w300)),
                         ),
                         const SizedBox(height: 20),
@@ -92,7 +93,7 @@ class UpgradeCarouselItem3 extends StatelessWidget {
                 top: 0,
                 child: Center(
                     child: Image.asset('assets/images/upgrade3-img.png',
-                        width: 230)),
+                        height: height*0.3404)),
               )
             ],
           ),

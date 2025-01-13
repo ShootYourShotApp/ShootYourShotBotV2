@@ -9,6 +9,7 @@ class UpgradeCarouselItem1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Column(
       children: [
         Padding(
@@ -18,22 +19,22 @@ class UpgradeCarouselItem1 extends StatelessWidget {
               child: GestureDetector(
                   onTap: () => Get.back(),
                   child: Icon(Icons.close,
-                      color: const Color(0xff979797), size: 20))),
+                      color: const Color(0xff979797), size: width*0.0555))),
         ),
         Center(
-            child: Image.asset('assets/images/studio-mic-icon.png', width: 48)),
+            child: Image.asset('assets/images/studio-mic-icon.png', width: width*0.1333)),
         const SizedBox(height: 8),
         GradientText(
             textWidget: Text('Live Voice Chat'.toUpperCase(),
                 style: TextStyle(
                     fontFamily: 'LuckiestGuy',
                     color: Colors.white,
-                    fontSize: 32))),
+                    fontSize: width*0.0888))),
         Expanded(
           child: Stack(
             children: [
               Positioned(
-                top: 85,
+                top: height*0.113,
                 left: 0,
                 right: 0,
                 child: Center(
@@ -60,12 +61,12 @@ class UpgradeCarouselItem1 extends StatelessWidget {
                         )),
                     child: Column(
                       children: [
-                        const SizedBox(height: 206),
+                        SizedBox(height: height*0.25),
                         Text('1-on-1 Coaching Sessions',
                             style: TextStyle(
                                 fontFamily: 'SFProRound',
                                 color: Colors.white,
-                                fontSize: 16,
+                                fontSize: width*0.0444,
                                 fontWeight: FontWeight.w900)),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -75,7 +76,7 @@ class UpgradeCarouselItem1 extends StatelessWidget {
                               style: TextStyle(
                                   fontFamily: 'SFProRound',
                                   color: Colors.white,
-                                  fontSize: 14,
+                                  fontSize: width*0.03888,
                                   fontWeight: FontWeight.w300)),
                         ),
                         const SizedBox(height: 20),
@@ -89,7 +90,7 @@ class UpgradeCarouselItem1 extends StatelessWidget {
                 right: 0,
                 top: 0,
                 child: Center(
-                    child: Image.asset('assets/images/bot-2.png', width: 190)),
+                    child: Image.asset('assets/images/bot-2.png', height: height*0.35106)),
               )
             ],
           ),

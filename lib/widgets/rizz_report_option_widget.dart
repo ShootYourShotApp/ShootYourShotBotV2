@@ -7,13 +7,20 @@ class OptionsWidget extends StatelessWidget {
       required this.label,
       required this.percentage,
       this.hidePercentage,
-      this.progressWidth});
+      this.progressWidth,
+        this.iconSize,
+        this.fontSize,
+        this.percentageSize
+      });
 
   final String label;
   final String iconPath;
   final double percentage;
   final bool? hidePercentage;
   final double? progressWidth;
+  final double? iconSize;
+  final double? fontSize;
+  final double? percentageSize;
 
   @override
   Widget build(BuildContext context) {
@@ -26,15 +33,15 @@ class OptionsWidget extends StatelessWidget {
               WidgetSpan(
                 child: Image.asset(
                   iconPath,
-                  width: 15,
-                  height: 15,
+                  width: iconSize ?? 15,
+                  height: iconSize ?? 15,
                 ),
               ),
               TextSpan(
                 text: ' $label',
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 12,
+                    fontSize: fontSize ?? 12,
                     fontWeight: FontWeight.w900,
                     fontFamily: 'SFProRound'),
               ),
@@ -50,7 +57,7 @@ class OptionsWidget extends StatelessWidget {
                       fontFamily: 'SFCompactRounded',
                       color: Colors.white,
                       fontWeight: FontWeight.w500,
-                      fontSize: 10)),
+                      fontSize: percentageSize ?? 10)),
             )),
         const SizedBox(height: 6),
         SizedBox(

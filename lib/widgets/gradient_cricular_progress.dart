@@ -17,6 +17,7 @@ class GradientCircularProgress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     // Calculate stops dynamically based on the number of gradient colors
     final List<double> stops = List.generate(
       gradientColors.length,
@@ -24,8 +25,8 @@ class GradientCircularProgress extends StatelessWidget {
     );
 
     return SizedBox(
-      height: 90,
-      width: 90,
+      height: width*0.25,
+      width: width*0.25,
       child: SfRadialGauge(
         enableLoadingAnimation: true,
         axes: [
@@ -55,9 +56,9 @@ class GradientCircularProgress extends StatelessWidget {
               GaugeAnnotation(
                 widget: Text(
                   "${percentage.toInt()}",
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontFamily: 'SFCompactRounded',
-                    fontSize: 24,
+                    fontSize: width*0.0666,
                     fontWeight: FontWeight.w900,
                     color: Colors.white,
                   ),

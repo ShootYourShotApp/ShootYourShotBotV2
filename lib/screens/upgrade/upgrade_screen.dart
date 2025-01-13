@@ -23,13 +23,15 @@ class _UpgradeScreenState extends State<UpgradeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Color(0xff0A0A0A),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 20),
+            SizedBox(height: height*0.0265),
             Expanded(
               child: Stack(
                 children: [
@@ -50,16 +52,17 @@ class _UpgradeScreenState extends State<UpgradeScreen> {
                   Positioned(
                     left: 0,
                     right: 0,
-                    bottom: 50,
+                    bottom: height*0.085,
                     child: Center(
                       child: SmoothPageIndicator(
                         controller: carouselController,
                         count: 3,
-                        effect: const SwapEffect(
+                        effect: const ExpandingDotsEffect(
                           activeDotColor: Color(0xFFFFFFFF),
                           dotColor: Color(0xff979797),
                           dotHeight: 8,
                           dotWidth: 8,
+                          expansionFactor: 3,
                           spacing: 8,
                         ),
                       ),
@@ -68,7 +71,7 @@ class _UpgradeScreenState extends State<UpgradeScreen> {
                   Positioned(
                     left: 0,
                     right: 0,
-                    bottom: 20,
+                    bottom: height*0.0332,
                     child: Center(
                       child: Text('1,000,000 reports completed',
                           style: TextStyle(
@@ -89,7 +92,7 @@ class _UpgradeScreenState extends State<UpgradeScreen> {
                   iconPath: 'assets/images/raising-hands-emoji.png'),
             ),
             const SizedBox(height: 6),
-            Text("\$9.99 per week",
+            Text("\$6.99 per week",
                 style: TextStyle(
                     fontFamily: 'SFProRound',
                     fontWeight: FontWeight.w400,

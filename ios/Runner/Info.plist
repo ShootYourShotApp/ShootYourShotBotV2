@@ -53,6 +53,8 @@
     <array>
         <string>mailto</string>
     </array>
+    <key>SKStoreReviewController</key>
+    <string>We value your feedback and would appreciate your rating!</string>
 
 
 </dict>

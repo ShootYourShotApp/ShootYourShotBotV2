@@ -10,6 +10,7 @@ class UpgradeCarouselItem2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Column(
       children: [
         Padding(
@@ -19,24 +20,24 @@ class UpgradeCarouselItem2 extends StatelessWidget {
               child: GestureDetector(
                   onTap: () => Get.back(),
                   child: Icon(Icons.close,
-                      color: const Color(0xff979797), size: 20))),
+                      color: const Color(0xff979797), size: width*0.0555))),
         ),
         Center(
             child:
-                Image.asset('assets/images/chart-decreasing.png', width: 50)),
+                Image.asset('assets/images/chart-decreasing.png', width: width*0.1388)),
         const SizedBox(height: 8),
         GradientText(
             textWidget: Text('Rizz Reports'.toUpperCase(),
                 style: TextStyle(
                     fontFamily: 'LuckiestGuy',
                     color: Colors.white,
-                    fontSize: 32))),
+                    fontSize: width*0.0888))),
         const SizedBox(height: 10),
         Expanded(
           child: Stack(
             children: [
               Positioned(
-                top: 50,
+                top: height*0.05319,
                 left: 0,
                 right: 0,
                 child: Center(
@@ -63,7 +64,7 @@ class UpgradeCarouselItem2 extends StatelessWidget {
                         )),
                     child: Column(
                       children: [
-                        const SizedBox(height: 66),
+                        SizedBox(height: height*0.08776),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -72,58 +73,71 @@ class UpgradeCarouselItem2 extends StatelessWidget {
                                 iconPath: 'assets/images/100-emoji.png',
                                 percentage: 100,
                                 hidePercentage: true,
-                                progressWidth: 110),
+                                progressWidth: width*0.3055,
+                                fontSize: width*0.031944,
+                                iconSize: width*0.0375,
+                            ),
                             OptionsWidget(
                                 label: 'Juice Level',
                                 iconPath: 'assets/images/juice-box-icon.png',
                                 percentage: 100,
                                 hidePercentage: true,
-                                progressWidth: 110),
+                              progressWidth: width*0.3055,
+                              fontSize: width*0.031944,
+                              iconSize: width*0.0375),
                           ],
                         ),
-                        const SizedBox(height: 28),
+                        SizedBox(height: height*0.03191),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             OptionsWidget(
-                                progressWidth: 110,
+                                progressWidth: width*0.3055,
+                                fontSize: width*0.031944,
+                                iconSize: width*0.0375,
                                 hidePercentage: true,
                                 label: 'Flex Factor',
                                 iconPath:
                                     'assets/images/flexed-biceps-icon.png',
                                 percentage: 100),
                             OptionsWidget(
-                                progressWidth: 110,
+                                progressWidth: width*0.3055,
+                                fontSize: width*0.031944,
+                                iconSize: width*0.0375,
                                 hidePercentage: true,
                                 label: 'Pickup Game',
                                 iconPath: 'assets/images/ball.png',
                                 percentage: 100),
                           ],
                         ),
-                        const SizedBox(height: 28),
+                        SizedBox(height: height*0.03191),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             OptionsWidget(
-                                progressWidth: 110,
+                                progressWidth: width*0.3055,
+                                fontSize: width*0.031944,
+                                iconSize: width*0.0375,
                                 hidePercentage: true,
                                 label: 'Drip Check',
                                 iconPath: 'assets/images/water-drop-icon.png',
                                 percentage: 100),
                             OptionsWidget(
-                                progressWidth: 110,
+                                progressWidth: width*0.3055,
+                                fontSize: width*0.031944,
+                                iconSize: width*0.0375,
                                 hidePercentage: true,
                                 label: 'Goal Digger',
                                 iconPath: 'assets/images/trophy-icon.png',
                                 percentage: 100),
                           ],
                         ),
-                        const SizedBox(height: 24),
+                        SizedBox(height: height*0.02925),
                         Text('Get Multiple Ratings',
                             style: TextStyle(
                                 fontFamily: 'SFProRound',
                                 color: Colors.white,
-                                fontSize: 16,
+                                fontSize: width*0.0444,
                                 fontWeight: FontWeight.w900)),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -133,7 +147,7 @@ class UpgradeCarouselItem2 extends StatelessWidget {
                               style: TextStyle(
                                   fontFamily: 'SFProRound',
                                   color: Colors.white,
-                                  fontSize: 14,
+                                  fontSize: width*0.03888,
                                   fontWeight: FontWeight.w300)),
                         ),
                         const SizedBox(height: 20),
@@ -148,7 +162,7 @@ class UpgradeCarouselItem2 extends StatelessWidget {
                 top: 0,
                 child: Center(
                     child: Image.asset('assets/images/bot-head-with-bg.png',
-                        width: 106)),
+                        width: 100)),
               )
             ],
           ),
